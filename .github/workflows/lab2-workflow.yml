@@ -8,6 +8,7 @@ on:
         type: boolean
         required: false
       custom-message:
+        type: string
         description: Enter A Custom message
         required: true
 
@@ -22,3 +23,6 @@ jobs:
     steps:
     - name: Printing Custom Message
       run: echo ${{inputs.custom-message}}
+    - name: Printing run-job boolean value
+      if: ${{ inputs.run-job == 'true'}}
+      run: echo ${{inputs.run-job}} 
